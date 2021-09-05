@@ -30,12 +30,6 @@ jobs:
       env:
         Tokens.Key: ${{ secrets.SERVER_SECRET }}
         ConnectionStrings.DefaultConnection : ${{ secrets.DB_CONNECTION }}
-    - name: Cypress Tests
-      uses: cypress-io/github-action@v2
-      with:
-        working-directory: ./client
-        build: npm run build
-        start: npm start
     - name: .NET Publish
       run: dotnet publish --configuration Release --output deploy
     - name: Publish via FTP
@@ -44,4 +38,4 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./deploy
+        local-dir: ./deploy/
