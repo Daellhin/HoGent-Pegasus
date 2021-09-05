@@ -33,7 +33,7 @@ jobs:
     - name: Cypress Tests
       uses: cypress-io/github-action@v2
       with:
-        working-directory: client/
+        working-directory: /client
         build: npm run build
         start: npm start
     - name: .NET Publish
@@ -44,4 +44,4 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: deploy/
+        local-dir: /deploy
