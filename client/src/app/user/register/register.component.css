@@ -1,0 +1,11 @@
+.login-main {
+  margin-top: 2em;
+}
+
+.form {
+  width: 19em;
+}
+
+::ng-deep .mat-card-header-text {
+  margin-left: 0 !important;
+}

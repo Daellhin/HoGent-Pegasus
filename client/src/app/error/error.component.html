@@ -1,0 +1,26 @@
+<div id="error" data-cy="error">
+  <div class="error">
+    <div class="error-status">
+      <h3>{{ appError.statusText }} Error</h3>
+      <h1 class="unselectable">
+        <span *ngFor="let letter of appError.status.split('')">{{ letter }}</span>
+      </h1>
+    </div>
+    <h2>{{ appError.message }}</h2>
+
+    <button
+      *ngIf="appError.returnToHome; else tryAgain"
+      mat-stroked-button
+      color="primary"
+      [routerLink]="['']"
+      class="button"
+    >
+      Terugkeren naar de homepagina
+    </button>
+    <ng-template #tryAgain>
+      <p style="color: #ff9800; font-size: 1.3em">Probeer het later opnieuw</p>
+    </ng-template>
+  </div>
+</div>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+<!-- Source: https://colorlib.com/wp/free-404-error-page-templates/ -->

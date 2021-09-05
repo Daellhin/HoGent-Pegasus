@@ -1,0 +1,9 @@
+.add-button{
+  margin-top: 0.9em;
+  margin-left: auto;
+  width: fit-content;
+}
+
+::ng-deep .mat-tooltip {
+  font-size: 0.9em;
+}

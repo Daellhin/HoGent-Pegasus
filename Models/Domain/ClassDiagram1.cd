@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="API.Models.Registration">
+    <Position X="11" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Registration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.Trainer">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Trainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Models.Training">
+    <Position X="6" Y="3.5" Width="2.25" />
+    <AssociationLine Name="Trainers" Type="API.Models.Trainer">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.22" Y="0.38" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Registrations" Type="API.Models.Registration" FixedFromPoint="true">
+      <Path>
+        <Point X="8.25" Y="4.375" />
+        <Point X="11" Y="4.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAIAAYAAAAAQEAAAAEAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Training.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Trainers" />
+      <Property Name="Registrations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="API.Models.Week">
+    <Position X="0.5" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Week.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Trainings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="API.Models.Groep">
+    <Position X="0.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAICAAAAAAAAAAAAIEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Groep.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

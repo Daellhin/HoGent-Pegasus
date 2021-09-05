@@ -1,0 +1,9 @@
+.centered {
+  margin: auto;
+  max-width: 700px;
+  width: 95%;
+}
+
+.margin-top {
+ margin-top: 1.4rem;
+}

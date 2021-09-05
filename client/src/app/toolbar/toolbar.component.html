@@ -1,0 +1,72 @@
+<mat-toolbar color="primary" class="mat-elevation-z3">
+  <mat-toolbar-row>
+    <div fxFlex>
+      <a [routerLink]="['']" fxLayoutAlign="start center">
+        <img src="/assets/icon-black.png" alt="logo pegasus" class="icon" />
+        <span fxHide.xs>AC Pegasus:&nbsp;</span>Inschrijvingen
+      </a>
+    </div>
+    <div fxFlex fxLayoutAlign="flex-end center">
+      <div layout-align="end end">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="acountMenu"
+          aria-label="Acount"
+        >
+          <mat-icon>account_circle</mat-icon>
+        </button>
+
+        <mat-menu #acountMenu="matMenu">
+          <div *ngIf="authService.user$ | async as user; else login">
+            <button mat-menu-item disabled>
+              <span>{{ user }}</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Uitloggen</span>
+            </button>
+          </div>
+          <ng-template #login>
+            <button mat-menu-item [routerLink]="['login']">
+              <mat-icon>login</mat-icon>
+              <span>Inloggen</span>
+            </button>
+          </ng-template>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <div *ngIf="authService.user$ | async as user">
+            <button mat-menu-item [routerLink]="['register']">
+              <mat-icon>add_circle</mat-icon>
+              <span>Nieuw Account</span>
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+          <div *ngIf="(authService.user$ | async) != null || !isRegistration()">
+            <button mat-menu-item [routerLink]="['trainers']">
+              <mat-icon>analytics</mat-icon>
+              <span>Trainers</span>
+            </button>
+            <button mat-menu-item [routerLink]="['weekplanning']">
+              <mat-icon>edit_calendar</mat-icon>
+              <span>Weekplanning</span>
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+          <button mat-menu-item [routerLink]="['changelog']">
+            <mat-icon>article</mat-icon>
+            <span>Changelog</span>
+          </button>
+          <button mat-menu-item (click)="aboutLink()">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

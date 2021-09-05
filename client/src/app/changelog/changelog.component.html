@@ -1,0 +1,13 @@
+<div *ngIf="appError">
+  <app-error [appError]="appError"></app-error>
+</div>
+<div class="markdown-body">
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <markdown
+  [src]="'assets/changelog.md'"
+  (ready)="loading = false"
+  (error)="onError($event)"
+  ngPreserveWhitespaces
+  data-cy="changelog"
+></markdown>
+</div>

@@ -1,0 +1,101 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <div fxLayout="column">
+      <div *ngIf="this.isUpdateComponent(); else addComponentHeader">
+        {{ training.formattedDayOfWeek() }}
+        |
+        {{ training.startHour | date: "HH:mm" }}
+        -
+        {{ training.endHour | date: "HH:mm" }}
+        |
+        {{ training.formattedGroup() }}
+        |
+        <span *ngFor="let item of training.trainers">{{ item.name }} </span>
+      </div>
+      <ng-template #addComponentHeader
+        >Nieuwe Training: Voeg gegevens toe</ng-template
+      >
+    </div>
+  </mat-expansion-panel-header>
+
+  <div fxLayout="row">
+    <form [formGroup]="trainingForm">
+      <!-- DayOfWeek -->
+      <mat-form-field>
+        <mat-label>Dag</mat-label>
+        <mat-select formControlName="dayOfWeek">
+          <ngx-simplebar [options]="npxSimplebarOptions">
+            <mat-option *ngFor="let day of DAYS_OF_WEEK" [value]="day.index">
+              {{ day.name }}
+            </mat-option>
+          </ngx-simplebar>
+        </mat-select>
+      </mat-form-field>
+      <!-- StartHour -->
+      <mat-form-field>
+        <mat-label>Start uur</mat-label>
+        <input matInput type="time" formControlName="startHour" />
+      </mat-form-field>
+      <!-- EndHour -->
+      <mat-form-field>
+        <mat-label>Eind uur</mat-label>
+        <input matInput type="time" formControlName="endHour" />
+      </mat-form-field>
+      <!-- Group -->
+      <mat-form-field>
+        <mat-label>Groep</mat-label>
+        <mat-select formControlName="group">
+          <ngx-simplebar [options]="npxSimplebarOptions">
+            <mat-option *ngFor="let group of GROUPS; let i = index" [value]="i">
+              {{ group }}
+            </mat-option>
+          </ngx-simplebar>
+        </mat-select>
+      </mat-form-field>
+      <!-- Trainers -->
+      <mat-form-field>
+        <mat-label>Trainers</mat-label>
+        <mat-select formControlName="trainers" multiple>
+          <ngx-simplebar [options]="npxSimplebarOptions">
+            <mat-option
+              *ngFor="let trainer of possibleTrainers"
+              [value]="trainer.name"
+            >
+              {{ trainer.name }}
+            </mat-option>
+          </ngx-simplebar>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <!-- Default footer(updating a training) -->
+  <div
+    fxLayout.xs="column"
+    fxLayout="row"
+    fxLayoutAlign="space-between"
+    *ngIf="isUpdateComponent(); else addComponentFooter"
+  >
+    <div fxLayout="row" fxLayout.xs="column">
+      <button mat-stroked-button color="primary" (click)="updateTraining()" [disabled]="!trainingForm.valid">
+        Aanpassingen opslaan
+      </button>
+      <button mat-stroked-button color="accent" (click)="resetTraining()">
+        Aanpassingen verwijderen
+      </button>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column">
+      <button mat-stroked-button color="warn" (click)="deleteTraining()">
+        Training verwijderen
+      </button>
+    </div>
+  </div>
+  <!-- Alternate footer(creating a training) -->
+  <ng-template #addComponentFooter>
+    <button mat-stroked-button color="primary" (click)="updateTraining()" [disabled]="!trainingForm.valid">
+      Training toevoegen
+    </button>
+    <button mat-stroked-button color="warn" (click)="deleteTraining()">
+      Training verwijderen
+    </button>
+  </ng-template>
+</mat-expansion-panel>

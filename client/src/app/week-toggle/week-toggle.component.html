@@ -1,0 +1,27 @@
+<div fxLayout="column">
+  <div>
+    <h1 class="title">Week van {{ startDate | date: "fullDate" }}</h1>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+    <button
+      mat-button
+      class="button-left"
+      (click)="changeWeek(true)"
+      [disabled]="!hasPreviousWeek"
+      data-cy="previousWeekButton"
+    >
+      <mat-icon>arrow_left</mat-icon>
+      <span> Vorige week</span>
+    </button>
+    <button
+      mat-button
+      class="button-right"
+      (click)="changeWeek(false)"
+      [disabled]="!hasNextWeek"
+      data-cy="nextWeekButton"
+    >
+      <span> Volgende week</span>
+      <mat-icon>arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

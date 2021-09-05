@@ -1,0 +1,41 @@
+<div *ngIf="!appError; else error">
+  <div *ngIf="week$ | async as week; else loadingOrError" fxLayout="column">
+    <app-week-toggle
+      [startDate]="week.start"
+      [hasPreviousWeek]="week.hasPreviousWeek"
+      [hasNextWeek]="week.hasNextWeek"
+      (previousWeek)="changeWeek($event)"
+    ></app-week-toggle>
+    <mat-card
+      *ngIf="week.message"
+      class="message-card"
+      data-cy="message"
+    >
+      <mat-card-content>{{ week.message }}</mat-card-content>
+    </mat-card>
+    <app-chart
+      *ngIf="week.hasTrainings()"
+      [input]="week.graphData"
+      data-cy="chart"
+      data-cy="registrationsChart"
+    ></app-chart>
+    <app-training
+      *ngFor="let item of week.trainings; first as isFirst"
+      [expanded]="isFirst"
+      [training]="item"
+      data-cy="trainings"
+    ></app-training>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div *ngIf="!appError; else error">
+    <mat-progress-bar mode="indeterminate" style="margin-top: 3rem;"></mat-progress-bar>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <app-error [appError]="appError"></app-error>
+</ng-template>
+
+<div style="height: 8rem"></div>

@@ -1,0 +1,47 @@
+mat-expansion-panel {
+  margin-top: 0.5em;
+}
+
+mat-expansion-panel-header {
+  height: auto;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  height: auto;
+}
+
+form {
+  margin-top: 0.5em;
+}
+
+mat-form-field {
+  margin-right: 1em;
+}
+
+ngx-simplebar {
+  height: 250px;
+}
+button {
+  margin-bottom: 0.3em;
+}
+
+@media only screen and (min-width: 600px) {
+ button.mat-primary {
+    margin-right: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .title {
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+    font-size: 2rem;
+  }
+}
+
+.disabled-text {
+  word-wrap: break-word;
+  height: auto;
+}

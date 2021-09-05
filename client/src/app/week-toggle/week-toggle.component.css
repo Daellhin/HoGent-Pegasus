@@ -1,0 +1,27 @@
+.title {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 2.4rem;
+}
+
+button {
+  color: #3b413f;
+}
+
+.button-left {
+  padding-left: 0.2em;
+  padding-right: 0.7em;
+}
+
+.button-right {
+  padding-left: 0.7em;
+  padding-right: 0.2em;
+}
+
+@media only screen and (max-width: 900px) {
+  .title {
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+    font-size: 2rem;
+  }
+}

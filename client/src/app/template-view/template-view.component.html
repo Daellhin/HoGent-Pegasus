@@ -1,0 +1,69 @@
+<div *ngIf="!appError; else error">
+  <div
+    *ngIf="
+      {
+        trainings: trainings$ | async,
+        possibleTrainers: possibleTrainers$ | async
+      } as o;
+      else loadingOrError
+    "
+    fxLayout="column"
+  >
+    <div *ngIf="week != null; else loadingOrError">
+      <div>
+        <h1 style="text-align: center; margin-bottom: 0">Weekplanning</h1>
+        <div style="text-align: right">
+          <button
+            mat-icon-button
+            matTooltip="Door de weekplanning aan te passen zullen de de trainingen van de volgende weken veranderen"
+            style="line-height: 20px; height: auto;"
+            [disableRipple]="true"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+        </div>
+
+        <app-training-template
+          *ngFor="let training of o.trainings"
+          [training]="training"
+          [possibleTrainers]="o.possibleTrainers"
+          (update)="updateTraining($event)"
+          (delete)="deleteTraining($event)"
+          data-cy="trainings"
+        ></app-training-template>
+      </div>
+      <div>
+        <app-training-template
+          *ngFor="let training of newTrainings"
+          [possibleTrainers]="o.possibleTrainers"
+          [training]="training"
+          (update)="createTraining($event)"
+          (delete)="deleteEmptyTraining($event)"
+        ></app-training-template>
+      </div>
+      <button
+        class="add-button"
+        mat-raised-button
+        color="primary"
+        (click)="addEmptyTraining()"
+      >
+        Training Toevoegen
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div *ngIf="!appError; else error">
+    <mat-progress-bar
+      mode="indeterminate"
+      style="margin-top: 3rem"
+    ></mat-progress-bar>
+  </div>
+</ng-template>
+
+<ng-template #error>
+  <app-error [appError]="appError"></app-error>
+</ng-template>
+
+<div style="height: 8rem"></div>

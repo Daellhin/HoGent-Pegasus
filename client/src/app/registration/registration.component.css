@@ -1,0 +1,70 @@
+.card {
+  margin-top: 1em;
+}
+
+.input-field {
+  margin-left: 1em;
+  margin-top: 1em;
+  width: 70%;
+}
+
+.button {
+  margin-top: 1em;
+  margin-bottom: 10rem;
+}
+
+.required {
+  color: #d93025;
+}
+
+.error {
+  margin-left: 0.6em;
+}
+
+table {
+  width: 100%;
+}
+
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+  cursor: pointer;
+}
+.ripple:active {
+  background-color: #ccc;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+tr:last-child td {
+  border-bottom-style: none;
+}
+
+.mat-cell {
+  font-size: small;
+  padding-right: 1.1em;
+}
+
+.mat-column-select {
+  padding-left: 1em !important;
+  padding-right: 1.1em !important;
+  width: 0px;
+}
+
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type {
+  padding-right: 0em !important;
+  margin-right: 0em !important;
+}
+
+.mat-form-field {
+  width: 90%;
+}
+
+.content {
+  margin-top: 0.5em;
+}
+
+.message-card {
+  margin-bottom: 1em;
+}

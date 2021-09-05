@@ -1,0 +1,27 @@
+<mat-expansion-panel [expanded]="expanded">
+  <mat-expansion-panel-header>
+    <div fxLayout="column" >
+      <div>
+        {{ training.formattedDayOfWeek() }}
+        |
+        {{ training.startHour | date: "HH:mm" }}
+        -
+        {{ training.endHour | date: "HH:mm" }}
+        |
+        {{ training.formattedGroup() }}
+        |
+        <span *ngFor="let item of training.trainers">{{ item.name }} </span>
+      </div>
+      <div class="description">
+        Inschrijvingen: {{ training.registrations.length }}
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <mat-list role="list">
+    <mat-list-item
+      *ngFor="let item of training.registrations"
+      role="listitem"
+      >{{ item.name }}</mat-list-item
+    >
+  </mat-list>
+</mat-expansion-panel>

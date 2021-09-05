@@ -1,0 +1,32 @@
+mat-expansion-panel {
+  margin-top: 0.5em;
+}
+
+mat-list {
+  padding-top: 0;
+}
+
+mat-expansion-panel-header {
+  height: auto;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  height: auto;
+}
+
+.mat-list-item {
+  background-color: #f8f9fa;
+  margin-bottom: 0.3em;
+  border-radius: 0.3em;
+  height: 2em !important;
+  font-size: 1em;
+}
+
+.description {
+  margin-left: 0.1em;
+  margin-top: 0.2em;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: small;
+}
