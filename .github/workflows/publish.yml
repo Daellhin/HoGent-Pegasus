@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name:  Build
-      run: dotnet build ./pegasus/  
+      run: dotnet build 
     #substitute production appsettings entries to appsettings json file
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
@@ -33,11 +33,11 @@ jobs:
     - name: Cypress Tests
       uses: cypress-io/github-action@v2
       with:
-        working-directory: ./pegasus/client/
+        working-directory: .client/
         build: npm run build
         start: npm start
     - name: .NET Publish
-      run: dotnet publish ./pegasus/ --configuration Release --output deploy
+      run: dotnet publish --configuration Release --output deploy
     - name: Publish via FTP
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
