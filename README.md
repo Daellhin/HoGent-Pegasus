@@ -7,7 +7,7 @@ This repo contains:
 - A Angular front end in the [./client](./client) directory
 
 ## Changelog
-[Link to changelog](./pegasus/client/src/assets/changelog.md)
+[Link to changelog](./client/src/assets/changelog.md)
 
 ## Screenshots
 
