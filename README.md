@@ -8,3 +8,11 @@ This repo contains:
 
 ## Changelog
 [Link to changelog](./pegasus/client/src/assets/changelog.md)
+
+## Screenshots
+
+![Login](images/Register.png)
+
+![Login](images/Statistics.png)
+
+![Login](images/Templates.png)
